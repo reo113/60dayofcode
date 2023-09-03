@@ -14,3 +14,14 @@ Output: [1,2]
 Example 3:
 Input: nums = [3,3], target = 6
 Output: [0,1] */
+const twoSum = (arr, t) => {
+  const map = new Map();
+  for (let i = 0; i < arr.length; i++) {
+    const compliment = target - arr[i];
+    if (map.has(compliment)) {
+      return [map.get(compliment), i];
+    }
+    map.set(arr[i], i);
+  }
+  return [];
+};
