@@ -13,22 +13,21 @@ Input: num1 = "123", num2 = "456"
 Output: "56088" */
 
 const multiplyString = (num1, num2) => {
-  let n = num1.length - 1;
-  let m = num2.length - 1;
-  let cur = 0;
-  let prod = Array(m*n).fill(0)
-  console.log(prod)
-  let remain = 0;
-  for (let i = n; i >= 0; i--) {
-    for (let j = m; j >= 0; j--) {
-      cur = num1[i] * num2[j] + remain + prod[i + j + 1];
-      remain = Math.floor(cur / 10);
-      prod[i + j + 1] = cur % 10;
+  let m = num1.length;
+  let n = num2.length;
+  const prod = new Array(m + n).fill(0);
+  for (let i = m-1; i >= 0; i--) {
+    for (let j = n-1; j >= 0; j--) {
+      const p1 = i + j;
+      const p2 = i + j + 1;
+      let sum = prod[p2] + Number(num1[i]) * Number(num2[j]);
+      prod[p2] = sum % 10;
+      prod[p1] += Math.floor(sum / 10);
     }
-    prod[i] += remain;
   }
 
-  return prod
+  if (prod[0] === 0) prod.shift();
+  return prod.join("");
 };
 
 let num1 = "123";
