@@ -27,6 +27,7 @@ const numOfIslands = (arr) => {
   const nr = arr.length;
   const nc = arr[0].length;
   let count = 0;
+
   const bfs = (r, c) => {
     const queue = [];
     queue.push([r, c]);
@@ -42,6 +43,7 @@ const numOfIslands = (arr) => {
       queue.push([r, c + 1]);
     }
   };
+  
   for (let r = 0; r < nr; r++) {
     for (let c = 0; c < nc; c++) {
       if (arr[r][c] === "1") {

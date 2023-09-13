@@ -16,10 +16,12 @@ const spiralMatrix = (matrix) => {
   let colSt = 0;
   const arr = [];
   while (rowSt <= rowEnd && colSt <= colEnd) {
+
     for (let i = colSt; i <= colEnd; i++) {
       arr.push(matrix[rowSt][i]);
     }
     rowSt++;
+
     for (let i = rowSt; i <= rowEnd; i++) {
       arr.push(matrix[i][colEnd]);
     }
@@ -29,10 +31,12 @@ const spiralMatrix = (matrix) => {
       arr.push(matrix[rowEnd][i]);
     }
     rowEnd--;
+
     for (let i = rowEnd; i >= rowSt; i--) {
       arr.push(matrix[i][colSt]);
     }
     colSt++;
+    
   }
   return arr;
 };
