@@ -7,16 +7,16 @@ class Node {
 }
 function dfs(root) {
   if (!root) return "x";
-  let str = "";
-  str += root.val;
-  str += dfs(root.left);
-  str += dfs(root.right);
+  let str = [];
+  str.push(root.val);
+  str.push(dfs(root.left));
+  str.push(dfs(root.right));
   return str;
 }
 
 function serialize(root) {
   if (!root) return [];
-  return dfs(root);
+  return dfs(root).join();
 }
 const node = new Node(
   1,

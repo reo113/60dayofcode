@@ -1,3 +1,10 @@
+class Node {
+  constructor(val, left = null, right = null) {
+    this.val = val;
+    this.left = left;
+    this.right = right;
+  }
+}
 const balancedBinarytree = (root) => {
   function getheight(root) {
     if (root == null) return 0;
