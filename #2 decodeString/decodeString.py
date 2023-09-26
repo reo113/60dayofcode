@@ -23,3 +23,12 @@ Example 3:
 Input: s = "2[abc]3[cd]ef"
 Output: "abcabccdcdcdef" 
 """
+
+def decodeString(encoded):
+    stack = []
+    for i, num in enumerate(encoded):
+        if num == ']':
+            
+            
+            
+    
