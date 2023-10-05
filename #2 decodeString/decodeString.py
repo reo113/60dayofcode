@@ -23,7 +23,16 @@ Example 3:
 Input: s = "2[abc]3[cd]ef"
 Output: "abcabccdcdcdef" 
 """
-const removed = myFish.splice(2);
+# const removed = myFish.splice(2);
 
-// myFish is ["angel", "clown"]
-// removed is ["mandarin", "sturgeon"]
+# // myFish is ["angel", "clown"]
+# // removed is ["mandarin", "sturgeon"]
+
+def decodeString(encoded):
+    stack = []
+    for i, num in enumerate(encoded):
+        if num == ']':
+            
+            
+            
+    
