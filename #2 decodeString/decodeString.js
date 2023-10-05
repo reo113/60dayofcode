@@ -50,5 +50,8 @@ const decodeString = (str) => {
   }
   return stack.join("");
 };
-const s = "3[a]2[bc]"
-console.log(decodeString(s))
+
+const myFish = ["angel", "clown", "mandarin", "sturgeon"];
+console.log(myFish.splice(0,1))
+// const s = "3[a]2[bc]"
+// console.log(decodeString(s))
