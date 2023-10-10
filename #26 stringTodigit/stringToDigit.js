@@ -2,8 +2,8 @@
 function strToDigit(num) {
   const arr = [];
   while (num) {
-    let mod = Math.floor(num % 10);
-    num = Math.floor(num / 10);
+    let mod = Math.floor(num % 100);
+    num = Math.floor(num / 100);
     arr.unshift(mod);
   }
   return arr;
