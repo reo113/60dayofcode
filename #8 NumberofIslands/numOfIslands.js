@@ -67,3 +67,4 @@ const grid = [
 ];
 
 console.log(numOfIslands(grid));
+console.log(grid);

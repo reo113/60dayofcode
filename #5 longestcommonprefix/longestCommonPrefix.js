@@ -19,17 +19,21 @@
 
 // Explanation: There is no common prefix among the input strings.
 
-let longestCommonPrefix = function (strs) {
-    // Return early on empty input
-    if (!strs.length) return '';
-    // Loop through the letters of the first word
-    for (let i = 0; i <= strs[0].length; i++) {
-        // Check if this character is present in the same position of every string
-        if (!strs.every((string) => string[i] === strs[0][i])) {
-            // If not, return the string up to and including the previous character
-            return strs[0].slice(0, i);
+let longestCommonPrefix = function(strs) {
+    if (strs.length === 0) return '';
+    let prefix = strs[0];
+    
+    for (let i = 1; i < strs.length; i++) {
+        let j = 0;
+        while (j < prefix.length && j < strs[i].length && prefix[j] === strs[i][j]) {
+            j++;
         }
+        prefix = prefix.slice(0, j);
+        if (prefix === '') return '';
     }
-
-    return strs[0];
+    
+    return prefix;
 };
+
+let strs = ["flower","flow","flight"]
+console.log(longestCommonPrefix(strs));
