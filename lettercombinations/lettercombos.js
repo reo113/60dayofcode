@@ -4,7 +4,6 @@ function letterCombinations(n) {
             path.push(str)
             return;
         }
-
         backtrack(str + "a", path, n) + backtrack(str + "b", path, n)
         return path;
 
@@ -13,4 +12,4 @@ function letterCombinations(n) {
     return backtrack("", [], n);
 }
 
-console.log(letterCombinations(2))
+console.log(letterCombinations(5))

@@ -11,39 +11,47 @@ Output: [[1]]
 Example 3:
 Input: root = []
 Output: [] */
-class Node {
-  constructor(val, left = null, right = null) {
+class TreeNode {
+  constructor(val) {
     this.val = val;
-    this.left = left;
-    this.right = right;
+    this.left = this.right = null;
   }
 }
-const binaryTreelevelOrder = (root) => {
-  let queue = [root[0]];
-  let arr = [];
-  let i = 0;
 
-  while (queue.length > 0 && i < root.length) {
-    let cur = queue.shift();
-    if (cur !== null && cur != undefined) arr.push(cur);
-    if (root[2 * i + 1] !== null) queue.push(root[2 * i + 1]);
-    if (root[2 * i + 2] !== null) queue.push(root[2 * i + 2]);
-    i++;
+function levelOrder(root) {
+  if (!root) return [];
+
+  const result = [];
+  const queue = [root];
+
+  while (queue.length > 0) {
+    const levelSize = queue.length;
+    const currentLevel = [];
+
+    for (let i = 0; i < levelSize; i++) {
+      const node = queue.shift();
+      currentLevel.push(node.val);
+
+      if (node.left) {
+        queue.push(node.left);
+      }
+
+      if (node.right) {
+        queue.push(node.right);
+      }
+    }
+    result.push(currentLevel);
   }
+  return result;
+}
 
-  return arr;
-  // while (queue.length > 0) {
-  //   let cur = queue.shift();
-  //   if (cur != null) arr.push(cur.val);
-  //   if (cur.left) queue.push(cur.left);
-  //   if (cur.right) queue.push(cur.right);
-  // }
-  // return arr;
-};
-const root = [3, 9, 20, null, null, 15, 7];
-const node = new Node(
-  3,
-  new Node(9, null, null),
-  new Node(20, new Node(15, null, null), new Node(7, null, null))
-);
-console.log(binaryTreelevelOrder(root));
+// Example usage:
+const root1 = new TreeNode(3);
+root1.left = new TreeNode(9);
+root1.right = new TreeNode(20);
+root1.right.left = new TreeNode(15);
+root1.right.right = new TreeNode(7);
+
+console.log(levelOrder(root1)); // Output: [[3], [9, 20], [15, 7]]
+
+

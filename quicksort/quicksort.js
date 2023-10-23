@@ -1,6 +1,6 @@
 function quicksort(arr) {
     if (arr.length < 1) return arr;
-    const pivot = arr[0]
+    const pivot = arr[Math.floor(Math.random() * arr.length)]
     const left = []
     const right = []
     for (let i = 0; i < arr.length; i++) {

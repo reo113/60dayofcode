@@ -17,5 +17,5 @@ let arr = [3, 2, 1, 5, 6, 4]
 let k = 2
 //smallest # is k-1
 //largest # is n-k
-console.log(quickSelect(arr,5))
+console.log(quickSelect(arr,2))
 console.log(arr)
