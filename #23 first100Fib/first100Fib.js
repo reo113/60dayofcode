@@ -7,8 +7,9 @@ function first100Fib(n, memo) {
   if (memo[n] !== undefined) return memo[n];
   if (n <= 1) return n;
 
-  memo[n]= first100Fib(n - 1, memo) + first100Fib(n - 2, memo);
-  
+  memo[n] = first100Fib(n - 1, memo) + first100Fib(n - 2, memo);
+
   return memo[n];
 }
 console.log(first100Fib(5, (memo = [])));
+

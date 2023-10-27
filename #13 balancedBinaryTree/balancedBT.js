@@ -1,3 +1,9 @@
+// Given a binary tree, determine if it is height-balanced
+ 
+// Example 1:
+// Input: root = [3,9,20,null,null,15,7]
+// Output: true
+
 class Node {
   constructor(val, left = null, right = null) {
     this.val = val;
