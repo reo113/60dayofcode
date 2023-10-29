@@ -1,17 +1,17 @@
-function stringsubsets(s) {
+function subsets(s) {
     let res = []
     let subset = []
-    function dfs(i) {
+    function backtrack(i) {
         if (i >= s.length) {
             res.push([...subset])
             return
         }
         subset.push(s[i])
-        dfs(i + 1)
+        backtrack(i + 1)
         subset.pop()
-        dfs(i + 1)
+        backtrack(i + 1)
     }
-    dfs(0)
+    backtrack(0)
     return res
 }
 const word = 'abc'
