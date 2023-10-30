@@ -58,7 +58,7 @@ const numOfIslands = (arr) => {
   }
   return count;
 };
-
+const grids = new Array(4).fill(1).map(() => new Array(5).fill(1))
 const grid = [
   ["1", "1", "0", "1", "0"],
   ["1", "1", "0", "1", "0"],

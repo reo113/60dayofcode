@@ -15,7 +15,7 @@
 // Output: -1
 function coinChange(coins, amount) {
 
-    function backtrack(coins, amount, cur) {
+    function dfs(coins, amount, cur) {
         if (amount === 0) {
             count = Math.min(count, cur)
             return
@@ -25,11 +25,11 @@ function coinChange(coins, amount) {
         }
 
         for (let i = 0; i < coins.length; i++) {
-            backtrack(coins, amount - coins[i], cur + 1)
+            dfs(coins, amount - coins[i], cur + 1)
         }
     }
     let count = Infinity
-    backtrack(coins, amount, 0);
+    dfs(coins, amount, 0);
     return count === Infinity ? -1 : count
 
 }

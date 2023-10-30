@@ -4,10 +4,22 @@
 // How many swap or move operations do you need?
 
 function rotateListKTimes(arr, k) {
-  for (let i = 0; i < k; i++) {
-    arr.unshift(arr.pop());
+  k = k % arr.length;
+  function reverse(arr, left, right) {
+    while (left < right) {
+      [arr[left], arr[right]] = [arr[right], arr[left]]
+      left++
+      right--
+    }
+
   }
-  return arr;
+  reverse(arr, 0, arr.length - 1);
+  reverse(arr, 0, k - 1);
+  reverse(arr, k, arr.length - 1)
+  return arr
+
+
+
 }
 
 const list = [1, 2, 3, 4, 5, 6];
