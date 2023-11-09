@@ -35,4 +35,4 @@ function coinChange(coins, amount) {
 }
 
 let coins = [1, 2, 5]
-console.log(coinChange(coins, 5))
+console.log(coinChange(coins, 11))

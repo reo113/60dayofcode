@@ -15,4 +15,4 @@ function subsets(s) {
     return res
 }
 const word = 'abc'
-console.log(stringsubsets(word))
+console.log(subsets(word))
