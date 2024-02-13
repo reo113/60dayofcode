@@ -54,8 +54,8 @@ var gameOfLife = function (board) {
     let nr = board.length
     let nc = board[0].length
     let grid = board.map(row => [...row])
-    for (let r = 0; r < board.length; r++) {
-        for (let c = 0; c < board[0].length; c++) {
+    for (let r = 0; r < nr; r++) {
+        for (let c = 0; c < nc; c++) {
             bfs(r, c)
         }
     }

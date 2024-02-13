@@ -3,9 +3,11 @@ function maxSumofSize_K(arr, k) {
   let cur = 0;
   let i = 0;
   for (let right = 0; right < arr.length; right++) {
-    if (right >= k) cur -= arr[i++];
+    if (right >= k) 
+      cur -= arr[i++];
     cur += arr[right];
-    if (cur > maxv) maxv = cur;
+    if (cur > maxv) 
+      maxv = cur;
   }
   return maxv;
 }

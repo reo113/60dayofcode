@@ -23,54 +23,53 @@
  * @return {number}
  */
 class MinHeap {
-    
-      constructor() {
-        this.heap = [];
-      }
-    
-      sortFn(a, b) {
-        if (a.val > b.val) return 1;
-        if (a.val === b.val) return 0;
-        if (a.val < b.val) return -1;
-      }
-    
-      add(val, colNum, row) { 
-        this.heap.push({val, colNum, row});
-        this.heap.sort(this.sortFn);
-      }
-    
-      extract = () => this.heap.shift();
-      size = () => this.heap.length;
-      peek = () => this.heap[0];
+
+  constructor() {
+    this.heap = [];
+  }
+
+  sortFn(a, b) {
+    if (a.val > b.val) return 1;
+    if (a.val === b.val) return 0;
+    if (a.val < b.val) return -1;
+  }
+
+  add(val, colNum, row) {
+    this.heap.push({ val, colNum, row });
+    this.heap.sort(this.sortFn);
+  }
+  extract = () => this.heap.shift();
+  size = () => this.heap.length;
+  peek = () => this.heap[0];
+}
+
+function kthSmallest(matrix, k) {
+  let heap = new MinHeap();
+
+  for (let i = 0; i < Math.min(k, matrix.length); i++) {
+    heap.add(matrix[i][0], 0, matrix[i]);
+  }
+
+  let numberCount = 0;
+  let number;
+
+  while (heap.size() > 0) {
+    let { val, colNum, row } = heap.peek();
+    heap.extract();
+    numberCount++;
+    number = val;
+
+    if (numberCount === k) {
+      break;
     }
-    
-    function kthSmallest(matrix, k) {
-      let heap = new MinHeap();
-    
-      for (let i = 0; i < Math.min(k, matrix.length); i++) {
-        heap.add(matrix[i][0], 0, matrix[i]);
-      }
-    
-      let numberCount = 0;
-      let number;
-    
-      while (heap.size() > 0) {
-        let {val, colNum, row} = heap.peek();
-        heap.extract();
-        numberCount++;
-        number = val;
-    
-        if (numberCount === k) {
-          break;
-        }
-    
-        if (row.length > colNum + 1) {
-          heap.add(row[colNum + 1], colNum + 1, row);
-        }
-      }
-    
-      return number;
-    };
+
+    if (row.length > colNum + 1) {
+      heap.add(row[colNum + 1], colNum + 1, row);
+    }
+  }
+
+  return number;
+};
 
 let matrix = [[1, 5, 9], [10, 11, 13], [12, 13, 15]], k = 8
-console.log(kthSmallest(matrix, k-1))
+console.log(kthSmallest(matrix, k - 1))

@@ -21,9 +21,9 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 def buyandsellstock(nums):
     mins = nums[0]
     maxs = 0
-    for i, num in enumerate(nums):
-        mins = min(num,mins)
-        maxs = max(maxs,num-mins)
+    for i in range(1,len(nums)):
+        mins = min(nums[i],mins)
+        maxs = max(maxs,nums[i]-mins)
     return maxs
 
 prices = [7,1,5,3,6,4]

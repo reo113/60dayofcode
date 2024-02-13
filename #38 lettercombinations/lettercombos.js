@@ -1,15 +1,15 @@
 function letterCombinations(n) {
-    function backtrack(str, path, n) {
+    function dfs(str, path, n) {
         if (str.length === n) {
             path.push(str)
             return;
         }
-        backtrack(str + "a", path, n) + backtrack(str + "b", path, n)
+        dfs(str + "a", path, n) + dfs(str + "b", path, n)
         return path;
 
 
     }
-    return backtrack("", [], n);
+    return dfs("", [], n);
 }
 
 console.log(letterCombinations(5))

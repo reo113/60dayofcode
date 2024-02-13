@@ -21,8 +21,8 @@
 function climbingStairs(n, memo) {
   if (memo[n] !== undefined) return memo[n];
   if (n <= 0) return 0;
-  if (n === 1) return n;
-  if (n === 2) return n;
+  if (n === 1 || n ===2 ) return n;
+
   memo[n] = climbingStairs(n - 1, memo) + climbingStairs(n - 2, memo);
   return memo[n];
 }
